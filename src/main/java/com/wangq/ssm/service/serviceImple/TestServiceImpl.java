@@ -22,8 +22,8 @@ public class TestServiceImpl implements TestService{
     }
 
     @Override
-    public String insert(Test test) {
-        testDao.insert(test);
+    public String insert(Map map) {
+        testDao.insert(map);
         return "success";
     }
 

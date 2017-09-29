@@ -46,8 +46,8 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping(value="/4",method = RequestMethod.GET)
-    public Object intert(Test test){
-        return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.insert(test));
+    public Object intert(@RequestParam Map<String,String> map){
+        return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.insert(map));
     }
 
     @ResponseBody

@@ -10,7 +10,7 @@ public interface TestService {
 
      List<Map<String,Object>> getOne();
 
-     String insert(Test test);
+     String insert(Map map);
 
      String findPassword(String name);
 

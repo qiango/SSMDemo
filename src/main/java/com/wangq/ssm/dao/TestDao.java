@@ -12,7 +12,7 @@ public interface TestDao {
 
     List<Map<String,Object>> findAll();
 
-    void insert(Test test);
+    void insert(Map map);
 
     String selectUserByID(String userName);
 
