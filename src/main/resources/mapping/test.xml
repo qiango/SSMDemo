@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wangq.ssm.dao.TestDao">
+
+    
+    <select id="findAll" resultType="map" >
+		select
+          id,
+          userName,
+          password
+		from
+			User
+
+  </select>
+
+    <select id="selectUserByID" parameterType="string" resultType="string">
+        select User.password from User where User.userName = #{userName}
+    </select>
+
+    <!--执行增加操作的SQL语句。id和parameterType分别与IUserOperation接口中的addUser方法的名字和参数类型一致。
+   useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到User的id属性-->
+    <insert id="insert" parameterType="com.wangq.ssm.entity.Test"
+  useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO User (userName,password)
+        VALUES (#{userName},#{password})
+  </insert>
+
+    <update id="updateUser" parameterType="com.wangq.ssm.entity.Test" >
+        update User set userName=#{userName},password=#{password} where id=#{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from User where id=#{id}
+    </delete>
+
+</mapper>
