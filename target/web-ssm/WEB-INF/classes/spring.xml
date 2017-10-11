@@ -10,7 +10,7 @@
 	<!--<context:property-placeholder location="classpath:spring.xml" />-->
 
 	<!--自动扫描含有@Service将其注入为bean -->
-	<context:component-scan base-package="com.wangq.ssm.serviceImpl" />
+	<context:component-scan base-package="com.wangq.ssm.service.serviceImple" />
 
 
 </beans>
