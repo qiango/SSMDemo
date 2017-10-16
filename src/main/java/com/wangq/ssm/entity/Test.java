@@ -1,9 +1,14 @@
 package com.wangq.ssm.entity;
 
+
 public class Test {
     private Integer id;
     private String userName;
     private String password;
+    private String face;
+    private Integer age;
+    private People people;
+
 
 
     public Integer getId() {
@@ -28,5 +33,30 @@ public class Test {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFace() {
+        return face;
+    }
+
+    public void setFace(String face) {
+        this.face = face;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+
+    public People getPeople() {
+        return people;
+    }
+
+    public void setPeople(People people) {
+        this.people = people;
     }
 }

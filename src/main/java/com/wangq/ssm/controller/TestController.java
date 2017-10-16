@@ -6,6 +6,7 @@ import com.wangq.ssm.entity.Test;
 import com.wangq.ssm.service.TestService;
 import com.wangq.ssm.util.ChanngeUtil;
 import com.wangq.ssm.util.ValueUtil;
+import com.wangq.ssm.util.YesmywineException;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.util.List;
 import java.util.Map;
 
 
@@ -70,8 +72,18 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping(value="/7",method = RequestMethod.GET)
-    public Object find2(Integer id){
-        return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.deleteUser(id));
+    public Object find2(int[] list){
+        try {
+            return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.deleteUser(list));
+        } catch (YesmywineException e) {
+            return ValueUtil.toError(e.getCode(),e.getMessage());
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/11",method = RequestMethod.GET)
+    public Object find6(String userName,Integer [] age){
+        return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.deleteByUser(userName, age));
     }
 
     @ResponseBody

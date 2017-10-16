@@ -1,0 +1,5 @@
+[INFO][main][2017-10-12 09:55:02][com.wangq.ssm.controller.TestMain] - This is info message.
+  [ERROR][main][2017-10-12 09:55:02][com.wangq.ssm.controller.TestMain] - This is error message.
+  [INFO][main][2017-10-12 10:05:21][com.wangq.ssm.controller.TestMain] - This is info message.
+  [ERROR][main][2017-10-12 10:05:21][com.wangq.ssm.controller.TestMain] - This is error message.
+  
