@@ -5,6 +5,7 @@ import com.wangq.ssm.dao.TestDao;
 import com.wangq.ssm.entity.People;
 import com.wangq.ssm.entity.Test;
 import com.wangq.ssm.service.TestService;
+import com.wangq.ssm.util.ValueUtil;
 import com.wangq.ssm.util.YesmywineException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,10 @@ public class TestServiceImpl implements TestService{
     }
 
     @Override
-    public String insert(Map map) {
+    public String insert(Map map) throws YesmywineException {
+        if(null!=testDao.findByUserName((String) map.get("userName"))){
+            ValueUtil.isError("该用户名已存在");
+        }
         testDao.insert(map);
         return "success";
     }

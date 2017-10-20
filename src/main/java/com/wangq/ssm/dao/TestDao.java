@@ -3,6 +3,7 @@ package com.wangq.ssm.dao;
 import com.wangq.ssm.entity.Test;
 import com.wangq.ssm.util.YesmywineException;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,9 @@ public interface TestDao {
     List<Map<String,Object>> findAll();
 
     void insert(Map map);
+
+    @Select("select * from User where userName =#{userName}")
+    Test findByUserName(@Param("userName")String userName);
 
     String selectUserByID(String userName);
 

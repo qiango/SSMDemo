@@ -12,7 +12,7 @@ public interface TestService {
 
      List<Map<String,Object>> getOne();
 
-     String insert(Map map);
+     String insert(Map map) throws YesmywineException;
 
      String findPassword(String name);
 

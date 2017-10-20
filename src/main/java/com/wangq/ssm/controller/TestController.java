@@ -6,6 +6,7 @@ import com.wangq.ssm.entity.Test;
 import com.wangq.ssm.service.TestService;
 import com.wangq.ssm.util.ChanngeUtil;
 import com.wangq.ssm.util.ValueUtil;
+import com.wangq.ssm.util.Verfiy;
 import com.wangq.ssm.util.YesmywineException;
 import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
@@ -48,14 +50,25 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping(value="/3",method = RequestMethod.GET)
-    public Object gettow(){
+    public Object gettow(HttpServletRequest request, HttpServletResponse response){
+        try {
+            String user=Verfiy.verfiy(request,response);
+            System.out.println("发送＝3》"+user);
+        } catch (YesmywineException e) {
+            return ValueUtil.toError(e.getCode(),e.getMessage());
+        }
         return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.getOne());
     }
 
     @ResponseBody
     @RequestMapping(value="/4",method = RequestMethod.GET)
-    public Object intert(@RequestParam Map<String,String> map){
-        return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.insert(map));
+    public Object intert(@RequestParam Map<String,String> map,HttpServletRequest request){
+        try {
+            System.out.println("发送＝＝》"+request.getSession().getId());
+            return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.insert(map));
+        } catch (YesmywineException e) {
+            return ValueUtil.toError(e.getCode(),e.getMessage());
+        }
     }
 
     @ResponseBody

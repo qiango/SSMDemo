@@ -15,6 +15,7 @@ import java.util.Map;
 public class ValueUtil {
 
     public static String defaultSuccess = "success";
+    private static JSONObject jsonObject=new JSONObject();
 
     public static boolean notEmpity(Object obj) {
         if (null == obj) {
@@ -112,12 +113,11 @@ public class ValueUtil {
     }
 
 
-    public static String toError(String code, String message) {
-        RestJson restJson = new RestJson();
-        restJson.setCode(code);
-        restJson.setData("");
-        restJson.setMsg(message);
-        return toString(restJson);
+    public static JSONObject toError(String code, String message) {
+        jsonObject.put("code",code);
+        jsonObject.put("data","");
+        jsonObject.put("message",message);
+        return jsonObject;
     }
 
     public static String toError(String code, String message, Object object) {
