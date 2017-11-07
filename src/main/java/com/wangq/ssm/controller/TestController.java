@@ -52,12 +52,13 @@ public class TestController {
     @RequestMapping(value="/3",method = RequestMethod.GET)
     public Object gettow(HttpServletRequest request, HttpServletResponse response){
         try {
-            String user=Verfiy.verfiy(request,response);
-            System.out.println("发送＝3》"+user);
+//            String user=Verfiy.verfiy(request,response);
+//            System.out.println("发送＝3》"+user);
+            return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.getOne());
         } catch (YesmywineException e) {
             return ValueUtil.toError(e.getCode(),e.getMessage());
         }
-        return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.getOne());
+
     }
 
     @ResponseBody

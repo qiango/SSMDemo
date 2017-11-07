@@ -8,10 +8,15 @@
       VALUES (#{realName},#{sex},#{createTime})
 </insert>
 
-
-
-
-
+    <select id="findByName" parameterType="String" resultType="Map">
+      SELECT * FROM people WHERE
+      <if test="realName!=null">
+          realName=#{realName}
+      </if>
+        <if test="sex!=null">
+         AND sex=#{sex}
+        </if>
+</select>
 
 
 </mapper>

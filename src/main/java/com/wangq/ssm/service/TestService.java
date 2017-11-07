@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface TestService {
 
-     List<Map<String,Object>> getOne();
+     List<Map<String,Object>> getOne()throws YesmywineException;
 
      String insert(Map map) throws YesmywineException;
 

@@ -1,6 +1,7 @@
 package com.wangq.ssm.controller;
 
 
+import com.wangq.ssm.dao.PeopleDao;
 import com.wangq.ssm.entity.DataSource;
 import com.wangq.ssm.entity.People;
 import com.wangq.ssm.service.TestService;
@@ -8,6 +9,7 @@ import com.wangq.ssm.util.ChanngeUtil;
 import com.wangq.ssm.util.ValueUtil;
 import com.wangq.ssm.util.YesmywineException;
 import org.apache.http.HttpStatus;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ public class DataController {
 
     @Autowired
     private TestService testService;
+
+    @Autowired
+    private PeopleDao peopleDao;
 
 
     @ResponseBody
@@ -44,6 +49,13 @@ public class DataController {
     @RequestMapping(value="/3",method = RequestMethod.POST)
     public Object find1(People people){
         return ChanngeUtil.toJson(HttpStatus.SC_OK,testService.updatePeople(people));
+    }
+
+
+    @ResponseBody
+    @RequestMapping(value="/4",method = RequestMethod.GET)
+    public Object find2( String realName, String sex){
+        return ChanngeUtil.toJson(HttpStatus.SC_OK,peopleDao.findByName(realName, sex));
     }
 
 

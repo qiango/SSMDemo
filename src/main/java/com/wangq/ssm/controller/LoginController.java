@@ -24,12 +24,12 @@ public class LoginController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Object login(String userName, String passWord, HttpServletRequest request, HttpServletResponse response){
         try {
             System.out.println("发送登录》"+request.getSession().getId());
-            ValueUtil.verify(userName,"passWord");
-            ValueUtil.verify(userName,"passWord");
+            ValueUtil.verify(userName,"userName");
+            ValueUtil.verify(passWord,"passWord");
             Test byUserName = testDao.findByUserName(userName);
             if(null==byUserName||!byUserName.getPassword().equals(passWord)){
                 ValueUtil.isError("用户名或密码错误");
