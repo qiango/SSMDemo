@@ -12,10 +12,7 @@ import org.apache.http.HttpStatus;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletRequest;
@@ -26,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@Controller
+@RestController
 @RequestMapping("/test")
 public class TestController {
 
@@ -36,7 +33,6 @@ public class TestController {
     private TestService serviceUser;
 
 
-    @ResponseBody
     @RequestMapping(value="/1",method = RequestMethod.GET)
     public String get(){
         return ValueUtil.toJson(HttpStatus.SC_OK,"hello my name is wangwangqian lala");
@@ -125,6 +121,7 @@ public class TestController {
         String tempPath="/home/hz/apps/wangqian";
         File tmpFile = new File(tempPath);
         if (!tmpFile.exists()) {
+
             //创建临时目录
             tmpFile.mkdir();
         }

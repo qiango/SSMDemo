@@ -1,5 +1,11 @@
 package com.wangq.ssm;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.util.*;
 
 public class Test {
@@ -66,6 +72,80 @@ public class Test {
         });
         for (Integer l:list){
             System.out.println(l);
+        }
+    }
+
+    //求数组最大
+    @org.junit.Test
+    public void arr(){
+        int arr[]={1,3,2,6,5};
+        int max=0;
+        for (int i=0;i<arr.length;i++){
+            if(arr[i]>arr[max]){
+                max=i;
+            }
+        }
+        System.out.println(arr[max]);
+    }
+
+    @org.junit.Test
+    public void arrar(){
+        int [] arr={1,2,6,8,4,3,7};
+        //选择排序
+        int temp;
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void email(){
+        // 收件人电子邮箱
+        String to = "1351705361@qq.com";
+
+        // 发件人电子邮箱
+        String from = "13437194372@163.com";
+
+        // 指定发送邮件的主机为 localhost
+        String host = "localhost";
+
+        // 获取系统属性
+        Properties properties = System.getProperties();
+
+        // 设置邮件服务器
+        properties.setProperty("mail.smtp.host", host);
+
+        // 获取默认session对象
+        Session session = Session.getDefaultInstance(properties);
+
+        try{
+            // 创建默认的 MimeMessage 对象
+            MimeMessage message = new MimeMessage(session);
+
+            // Set From: 头部头字段
+            message.setFrom(new InternetAddress(from));
+
+            // Set To: 头部头字段
+            message.addRecipient(Message.RecipientType.TO,
+                    new InternetAddress(to));
+
+            // Set Subject: 头部头字段
+            message.setSubject("This is the Subject Line!");
+
+            // 设置消息体
+            message.setText("This is actual message");
+
+            // 发送消息
+            Transport.send(message);
+            System.out.println("Sent message successfully....");
+        }catch (MessagingException mex) {
+            mex.printStackTrace();
         }
     }
 
