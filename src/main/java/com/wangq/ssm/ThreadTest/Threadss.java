@@ -1,4 +1,4 @@
-package com.wangq.ssm;
+package com.wangq.ssm.ThreadTest;
 
 /**
  *线程被创建--》start()-->运行（具备执行资格，执行权）-->sleep(time)冻结（释放执行权，执行资格）
