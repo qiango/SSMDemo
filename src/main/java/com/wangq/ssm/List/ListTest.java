@@ -29,6 +29,7 @@ public class ListTest {
      *
      *ArrayList存对象的时候，若对象未复写equals方法，则list.contains(obj)方法认为已存在的元素不存在。（false）
      *HashSet存对象的时候，若对象为复写hashCode方法，则set.contains(obj)方法认为已存在的元素不存在。（false）（先比较地址hashcode，再比较equals）
+     * hashMap同上
      * remove（）方法同理
      */
 
@@ -70,7 +71,7 @@ public class ListTest {
     }
 
     @Test
-    public void treeSet(){//重构一个比较器，通过字符串的长度来排序。
+    public void treeSet(){//重构一个比较器，通过字符串的长度来排序。treeMap也是同理。加个比较器，其底层就是treeSet
         TreeSet treeSet=new TreeSet(new TreeSetTest());
 
         treeSet.add("ads");
