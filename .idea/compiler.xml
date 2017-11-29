@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demoCloud" />
         <module name="webssm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demoCloud" target="1.8" />
       <module name="webssm" target="1.7" />
     </bytecodeTargetLevel>
   </component>

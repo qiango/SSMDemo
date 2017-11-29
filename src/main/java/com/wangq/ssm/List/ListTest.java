@@ -17,7 +17,7 @@ public class ListTest {
      *迭代器在迭代使用的时候，不能对集合中的元素进行增加删除的操作，否则会报错
      *迭代器取元素的时候，在循环中,it.next()方法只能用一次，多次会继续向下取
      *
-     *
+     *String 是字符串,它的比较用compareTo方法,它从第一位开始比较,如果遇到不同的字符,则马上返回这两个字符的ascii值差值..返回值是int类型
      *
      */
 
@@ -32,6 +32,11 @@ public class ListTest {
      * hashMap同上
      * remove（）方法同理
      */
+
+    @Test
+    public void compareTo(){
+        System.out.println("a".compareTo("b"));
+    }
 
     @Test
     public void hashTest(){
@@ -74,15 +79,16 @@ public class ListTest {
     public void treeSet(){//重构一个比较器，通过字符串的长度来排序。treeMap也是同理。加个比较器，其底层就是treeSet
         TreeSet treeSet=new TreeSet(new TreeSetTest());
 
-        treeSet.add("ads");
-        treeSet.add("a");
-        treeSet.add("dsa");
-        treeSet.add("dasdasd");
+        treeSet.add("ads5");
+        treeSet.add("a9");
+        treeSet.add("dsa7");
+        treeSet.add("dasdasd1");
         Iterator iterator=treeSet.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
-
+        String max = Collections.max(treeSet).toString();
+        System.out.println(max);
 
     }
 }

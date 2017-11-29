@@ -78,7 +78,7 @@ public class Test {
     //求数组最大
     @org.junit.Test
     public void arr(){
-        int arr[]={1,3,2,6,5};
+        Integer arr[]={1,3,2,6,5};
         int max=0;
         for (int i=0;i<arr.length;i++){
             if(arr[i]>arr[max]){
@@ -86,6 +86,19 @@ public class Test {
             }
         }
         System.out.println(arr[max]);
+        //排序并遍历
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        //将数组转成集合
+        //注意，因为数组的长度是固定的，所以转化成集合后，新增和删除的方法不能使用（改变长度的方法）
+        //注意,如果数组中的元素是对象，那么转成集合后，直接将数组中的元素作为集合中的参数进行存储
+        //但是如果数组中的元素是基本类型，那么会将该数组作为集合中的元素进行存储。
+        //也就是说，当数组类型为int时，转为集合后集合的元素就一个，为整个数组，类型为List<int []>
+        List<Integer> ints = Arrays.asList(arr);//integer为集合类型
+        System.out.println(ints);
+        //集合转数组
+        Integer[] integers = ints.toArray(new Integer[7]);
+        System.out.println(Arrays.toString(integers));
     }
 
     @org.junit.Test
