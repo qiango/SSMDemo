@@ -9,7 +9,7 @@ import java.io.*;
  * @Description:
  * @Date:Create in 4:20 PM 11/28/17
  */
-public class IoTest {
+public class IoTest {//字符流demo
     @Test
     public void xiezi()throws Exception{//往文件里写文字，一般使用字符流
         FileWriter fileWriter=new FileWriter("test.txt");

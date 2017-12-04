@@ -1,8 +1,8 @@
 字节流的两个父类
 
-1、InputStream  --->FileInputStream --->(读取流)
+1、InputStream  --->FileInputStream --->BufferedInputStream (读取流)
 
-2、OutputStream ---> FileOutputStream --->（写入流）
+2、OutputStream ---> FileOutputStream --->BufferedOutputStream（写入流）
 
 
 字符流的两个父类
@@ -13,3 +13,8 @@
 //将文字写入到硬盘中，使用字符流.
 
 //复制文件
+//使用哪个流对象如下：
+ 是否是纯文本
+ 源：是：Reader,否:InputStream
+ 目的:是:writer,否:OutputStream
+ 如要高效（缓冲区），则加上buffer
