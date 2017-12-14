@@ -37,11 +37,10 @@ public class ThreadTestsss {
 
     @Test
     public void test(){
-
-    Threadss threadss=new Threadss("wangqian");
-    Thread thread=new Thread(threadss);
-        threadss.start();
-// thread.start();
+        Threadss threadss=new Threadss("wangqian");
+        Thread thread=new Thread(threadss);
+//        threadss.start();
+            thread.start();
     }
 
 
