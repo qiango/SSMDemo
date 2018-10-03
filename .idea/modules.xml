@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demoCloud/demoCloud.iml" filepath="$PROJECT_DIR$/demoCloud/demoCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demoCloud/demo.iml" filepath="$PROJECT_DIR$/demoCloud/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/webssm.iml" filepath="$PROJECT_DIR$/webssm.iml" />
     </modules>
   </component>

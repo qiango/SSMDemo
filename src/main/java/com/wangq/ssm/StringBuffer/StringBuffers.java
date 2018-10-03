@@ -27,7 +27,11 @@ public class StringBuffers {
 
     @Test
     public void getNum(){//一串字符串，统计字符出现的个数
-        String str="sidjgskijdn";
+        String str="sidjgsku大大打大ijdn";
+        char[] chars = str.toCharArray();
+        for (int i=0;i<chars.length;i++){
+            System.out.println(chars[i]);
+        }
         int count=0;
         String key="j";
         System.out.println(key.length());

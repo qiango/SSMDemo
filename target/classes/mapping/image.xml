@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wangq.ssm.dao.UploadDao">
+
+    
+    <!--<select id="findAll" resultType="com.wangq.ssm.entity.Goods" >-->
+		<!--select-->
+          <!--*-->
+		<!--from-->
+			<!--goods where limit (#{currentPage}-1)*#{pageSize},#{pageSize}*#{currentPage}-->
+
+  <!--</select>-->
+
+    <!--<select id="findByType" parameterType="string" resultType="com.wangq.ssm.entity.Goods">-->
+        <!--select * from goods where type = #{type}-->
+    <!--</select>-->
+
+    <!--执行增加操作的SQL语句。id和parameterType分别与IUserOperation接口中的addUser方法的名字和参数类型一致。
+   useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到User的id属性-->
+    <insert id="insert" parameterType="Map"
+  useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO imageUrl (url)
+        VALUES (#{url})
+  </insert>
+
+
+
+    <!--<select id="selectById" parameterType="java.lang.Integer"-->
+            <!--resultMap="BaseResultMap">-->
+        <!--select * from User p where p.id = #{id}-->
+    <!--</select>-->
+
+    <!--
+       根据id查询得到一个order对象，使用这个查询是可以正常查询到我们想要的结果的，
+       这是因为我们将查询的字段名都起一个和实体类属性名相同的别名，这样实体类的属性名和查询结果中的字段名就可以一一对应上
+    -->
+    <!--<select id="selectOrder" parameterType="int"-->
+            <!--resultType="me.gacl.domain.Order">-->
+        <!--select order_id id, order_no orderNo,order_price price from orders where order_id=#{id}-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash;-->
+    <!--根据id查询得到一个order对象，使用这个查询是可以正常查询到我们想要的结果的，-->
+    <!--这是因为我们通过<resultMap>映射实体类属性名和表的字段名一一对应关系 &ndash;&gt;-->
+    <!--<select id="selectOrderResultMap" parameterType="int" resultMap="orderResultMap">-->
+        <!--select * from orders where order_id=#{id}-->
+    <!--</select>-->
+    <!--&lt;!&ndash;通过<resultMap>映射实体类属性名和表的字段名对应关系 &ndash;&gt;-->
+    <!--<resultMap type="me.gacl.domain.Order" id="orderResultMap">-->
+        <!--&lt;!&ndash; 用id属性来映射主键字段 &ndash;&gt;-->
+        <!--<id property="id" column="order_id"/>-->
+        <!--&lt;!&ndash; 用result属性来映射非主键字段 &ndash;&gt;-->
+        <!--<result property="orderNo" column="order_no"/>-->
+        <!--<result property="price" column="order_price"/>-->
+    <!--</resultMap>-->
+
+
+</mapper>

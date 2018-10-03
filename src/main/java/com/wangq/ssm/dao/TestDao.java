@@ -17,7 +17,7 @@ public interface TestDao {
 
     void insert(Map map);
 
-    @Select("select * from User where userName =#{userName}")
+    @Select("select * from Test where userName =#{userName}")
     Test findByUserName(@Param("userName")String userName);
 
     String selectUserByID(String userName);

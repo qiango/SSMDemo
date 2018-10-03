@@ -25,6 +25,9 @@ public class ArrayTest {
         return sum;
     }
 
+    public void  gett(int arr[]){
+
+    }
 
 
 

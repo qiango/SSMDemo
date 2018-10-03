@@ -11,8 +11,6 @@ public class YesmywineException extends Exception {
     private String code;
     private String msg;
 
-    private String message;
-
     @Override
     public String getMessage() {
 //        HttpBean httpBean = new HttpBean("http://47.89.18.26:8181/dic/" + getCode(), RequestMethod.get);
@@ -26,13 +24,9 @@ public class YesmywineException extends Exception {
         return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public YesmywineException(String code) {
-        this.code = code;
-        this.msg = "";
+    public YesmywineException(String msg) {
+        this.code = "500";
+        this.msg = msg;
     }
 
     public YesmywineException(String code, String msg) {

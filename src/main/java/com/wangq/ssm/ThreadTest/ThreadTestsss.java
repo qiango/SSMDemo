@@ -40,7 +40,7 @@ public class ThreadTestsss {
 
     Threadss threadss=new Threadss("wangqian");
     Thread thread=new Thread(threadss);
-        threadss.start();
+        thread.start();
 // thread.start();
     }
 

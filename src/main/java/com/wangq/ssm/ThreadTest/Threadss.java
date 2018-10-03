@@ -9,7 +9,7 @@ package com.wangq.ssm.ThreadTest;
  *
  *
  */
-public class Threadss extends Thread {
+public class Threadss implements Runnable {
 
     private String name;
 
@@ -19,7 +19,7 @@ public class Threadss extends Thread {
     }
 
     public void run() {
-        System.out.println("run方法"+getName());//getName()获取线程名称
+        System.out.println("run方法");//getName()获取线程名称
         System.out.println(Thread.currentThread().getName());//获取当前线程名称
     }
 

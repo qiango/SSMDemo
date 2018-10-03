@@ -17,18 +17,18 @@
     <param-value>classpath:log4j.properties</param-value>
   </context-param>
 
-  <!-- 编码过滤器 -->
+  <!-- 接口过滤器 -->
   <filter>
-    <filter-name>encodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <filter-name>JWTFilter</filter-name>
+    <filter-class>com.wangq.ssm.jwt.JWTFilter</filter-class>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
   </filter>
   <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>/</url-pattern>
+    <filter-name>JWTFilter</filter-name>
+    <url-pattern>*</url-pattern>
   </filter-mapping>
 
   <!-- spring监听器 -->
@@ -58,10 +58,6 @@
     <!-- 此处也可以配置成 *.do 形式 -->
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-
-  <welcome-file-list>
-    <welcome-file>/index.jsp</welcome-file>
-  </welcome-file-list>
 
   <!-- session配置 -->
   <session-config>

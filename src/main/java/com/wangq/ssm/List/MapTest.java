@@ -1,6 +1,8 @@
 package com.wangq.ssm.List;
 
 import org.junit.Test;
+
+import javax.persistence.Table;
 import java.util.*;
 
 /**
@@ -78,4 +80,28 @@ public class MapTest {
             }
 
         }
+
+
+    //了解了上面HashMap的put和get操作原理，可以通过下面这个小例题进行知识巩固，
+    // 题目是打印在数组中出现n/2以上的元素，我们便可以使用HashMap的特性来解决。
+    @Test
+    public void  HashMapTest() {
+            int [] a = {2,1,3,2,0,4,2,1,2,3,1,5,6,2,2,3};
+            Map<Integer, Integer> map = new HashMap<Integer,Integer>();
+            for(int i=0; i<a.length; i++){
+                if(map.containsKey(a[i])){
+                    int tmp = map.get(a[i]);
+                    tmp+=1;
+                    map.put(a[i], tmp);
+                }else{
+                    map.put(a[i], 1);
+                }
+            }
+            Set<Integer> set = map.keySet();
+            for (Integer s : set) {
+                if(map.get(s)>=a.length/2){
+                    System.out.println(s);
+                }
+            }
+    }
 }

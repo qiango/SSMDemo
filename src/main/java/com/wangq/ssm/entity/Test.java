@@ -7,8 +7,6 @@ public class Test {
     private String password;
     private String face;
     private Integer age;
-    private People people;
-
 
 
     public Integer getId() {
@@ -51,12 +49,4 @@ public class Test {
         this.age = age;
     }
 
-
-    public People getPeople() {
-        return people;
-    }
-
-    public void setPeople(People people) {
-        this.people = people;
-    }
 }

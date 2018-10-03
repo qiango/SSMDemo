@@ -3,6 +3,7 @@ package com.wangq.ssm.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.wangq.ssm.entity.Test;
+import com.wangq.ssm.jwt.UserUtils;
 import com.wangq.ssm.service.TestService;
 import com.wangq.ssm.util.ChanngeUtil;
 import com.wangq.ssm.util.ValueUtil;
@@ -48,9 +49,10 @@ public class TestController {
     @RequestMapping(value="/3",method = RequestMethod.GET)
     public Object gettow(HttpServletRequest request, HttpServletResponse response){
         try {
+            String userName = UserUtils.getUserJson(request);
 //            String user=Verfiy.verfiy(request,response);
 //            System.out.println("发送＝3》"+user);
-            return ChanngeUtil.toJson(HttpStatus.SC_OK,serviceUser.getOne());
+            return ChanngeUtil.toJson(HttpStatus.SC_OK,userName);
         } catch (YesmywineException e) {
             return ValueUtil.toError(e.getCode(),e.getMessage());
         }

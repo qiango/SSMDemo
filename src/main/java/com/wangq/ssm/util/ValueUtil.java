@@ -201,6 +201,15 @@ public class ValueUtil {
         }
     }
 
+    public static void qianVerifyEmpty(Object ...obj) throws YesmywineException{
+            for(int i=0;i<obj.length;i++){
+                if(isEmpity(obj[i])){
+                    throw new YesmywineException("500","第"+i+1+"个参数为空");
+                }
+            }
+
+    }
+
 
     public static void verify(Object param, String errorCode) throws YesmywineException {
         if (isEmpity(param)) {
