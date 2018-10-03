@@ -23,8 +23,8 @@ public class Threadss implements Runnable {
         System.out.println(Thread.currentThread().getName());//获取当前线程名称
     }
 
-//    public void start() {
-//        System.out.println("start方法");
-//    }
+    public void start() {
+        System.out.println("start方法");
+    }
 
 }
